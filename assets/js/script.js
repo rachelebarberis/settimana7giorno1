@@ -42,3 +42,29 @@ console.log(user1.comparation(user3));
 console.log(user2.comparation(user3));
 
 //secondo esercizio
+const btnAdd =document.getElementById('add');
+const petList= document.getElementById('petList');
+
+class Pet {
+    constructor(_petName, _ownerName, _species, _breed) {
+        this.petName =_petName;
+        this.ownerName =_ownerName;
+        this.species = _species;
+        this.breed = _breed;
+    }
+}
+
+btnAdd.addEventListener('click', (e) => {
+    e.preventDefault();
+    let petName = document.getElementById('petName').value;
+    let ownerName = document.getElementById('ownerName').value;
+    let species = document.getElementById('species').value;
+    let breed= document.getElementById('breed').value;
+    const newPet = new Pet (petName, ownerName, species, breed);
+
+    const listItems = document.createElement('li');
+    listItems.innerHTML = `${newPet.petName} è di proprietà di ${newPet.ownerName}.`
+    petList.appendChild(listItems);
+
+    petForm.reset();
+});
